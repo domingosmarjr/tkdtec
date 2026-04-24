@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Técnicas de Taekwondo</title>
+
+  <style>
+  body {
+    background-color: #f3f4f6;
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    margin: 0;
+  }
+
+  h1, h2 {
+    text-align: center;
+  }
+
+  h3 {
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+
+  .sub {
+    font-size: 0.75em;
+    color: rgba(0,0,0,0.5);
+    margin-bottom: 5px;
+    display: block;
+    font-style: italic;
+  }
+
+  ul {
+    margin-top: 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .box {
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: 0.2s;
+  }
+
+  .box:hover {
+    transform: scale(1.01);
+  }
+
+  .title {
+    padding: 18px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content {
+    padding: 15px 20px 20px;
+    transition: all 0.25s ease;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #g4, #g3, #g2 {
+    color: black;
+  }
+
+  #g1 > .sub{
+    color: rgb(211, 211, 211);
+  }
+
+  #g1 .hangul {
+    color: rgb(255, 255, 255);
+  }
+
+  #g1 .sub {
+    color: rgb(255, 255, 255);
+  }
+
+  #dan1 .hangul {
+    color: rgb(189, 189, 189);
+  }
+
+  #dan1 .sub {
+    color: rgb(189, 189, 189);
+  }
+
+  #dan1 hr {
+    color: white;
+  }
+
+  .hangul {
+    color: rgba(0,0,0,0.6);
+    font-size: 0.9em;
+    margin-left: 6px;
+  }
+  
+  /* CORES DAS FAIXAS */
+  .branca { background: #fff; border: 1px solid #ccc; }
+  .cinza { background: #bfbfbf; }
+  .amarela { background: #ffea00; }
+  .laranja { background: #f28c28; }
+  .verde { background: #1faa59; }
+  .verde-escuro { background: #1b5e20; color: white; }
+  .azul { background: #1f9bd1; color: white; }
+  .roxa { background: #4b4fa3; color: white; }
+  .vermelha { background: #ef2b2d; color: white; }
+  .vermelha-escura { background: #a83232; color: white; }
+
+  /* 🔥 FUNDO INTEGRADO (AQUI ESTÁ A MELHORIA REAL) */
+  .branca .content { background: #ffffff; }
+  .cinza .content { background: #f2f2f2; }
+  .amarela .content { background: #fff9c4; }
+  .laranja .content { background: #ffe0b2; }
+  .verde .content { background: #e8f5e9; }
+  .azul .content { background: #e3f2fd; }
+  .roxa .content { background: #ede7f6; }
+  .vermelha .content { background: #ffebee; }
+
+  /* FUNDOS ESCUROS */
+  .verde-escuro .content {
+    background: #2e7d32;
+    color: #fff;
+  }
+
+  .vermelha-escura .content {
+    background: #5c1f1f;
+    color: #fff;
+  }
+
+  /* HR MELHORADO */
+  hr {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin: 15px 0;
+  }
+
+  .verde-escuro hr,
+  .vermelha-escura hr {
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+/* FAIXA PRETA */
+.preta {
+  background: #000;
+  color: #fff;
+  border: 1px solid #222;
+}
+
+/* CONTEÚDO */
+.preta .content {
+  background: #111;
+  color: #fff;
+}
+
+/* HEADER */
+.preta .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LADO ESQUERDO */
+.title-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* LISTRAS (VERTICAIS) */
+.dan-bars {
+  display: flex;
+  gap: 4px;
+  height: 20px; /* altura controlada */
+  align-items: center;
+}
+
+/* CADA LISTRA */
+.dan-bar {
+  width: 4px;
+  height: 100%;
+  background: #ffea00;
+  border-radius: 2px;
+}
+
+  /* 📱 MOBILE */
+  @media (max-width: 600px) {
+    body {
+      padding: 15px;
+    }
+
+    h1 {
+      font-size: 18px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    .title {
+      font-size: 16px;
+      padding: 16px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Escola Pholmann de Taekwondo</h1>
+<h2>Técnicas de Taekwondo por Faixa</h2>
+
+<div class="container">
+
+<!-- 10 GUB -->
+<div class="box branca">
+  <div class="title" onclick="toggleBox('g10')">
+    10º GUB (십급 / Sip Geup)
+    <span id="icon-g10">▼</span>
+  </div>
+
+  <div id="g10" class="content hidden">
+    <!-- TODO SEU CONTEÚDO FOI PRESERVADO -->
+    <h3>Kibon Dong Jak (기본 동작)</h3>
+    <span class="sub">Movimentos Básicos</span>
+
+    <ul>
+      <li>Narani Momtong Jireugi <span class="hangul">(나란히 몸통 지르기)</span></li>
+      <li>Narani Momtong Dubon Jireugi <span class="hangul">(나란히 몸통 두번 지르기)</span></li>    
+      <li>Juchum Seogui Momtong Jireugi <span class="hangul">(주춤 서기 몸통 지르기)</span></li>
+      <li>Juchum Seogui Momtong Sebong Jireugi <span class="hangul">(주춤 서기 몸통 세번 지르기)</span></li>
+      <li>Moa Seogui Momtgong Jireugi <span class="hangul">(모아 서기 몸통 지르기)</span></li>
+    </ul>
+    <hr>
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Nagamyeo Ap Kubi Arae Makgi <span class="hangul">(나가며 앞굽이 아래 막기)</span></li>
+      <li>Nagamyeo Ap Kubi Eolgul Makgi <span class="hangul">(나가며 앞굽이 얼굴 막기)</span></li>
+      <li>Nagamyeo Ap Kubi Momtong Jireugi <span class="hangul">(나가며 앞굽이 몸통 지르기)</span></li>
+      <li>Nagamyeo Ap Kubi Eolgul Jireugi <span class="hangul">(나가며 앞굽이 얼굴 지르기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Ap Oligui <span class="hangul">(앞 올리기)</span></li>
+      <li>Ap Chagi <span class="hangul">(앞 차기)</span></li>
+      <li>An Chagi <span class="hangul">(안 차기)</span></li>
+      <li>Bakkat Chagi <span class="hangul">(바깥 차기)</span></li>
+      <li>Dollyeo Chagi <span class="hangul">(돌려 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Nolim (발 놀림)</h3>
+    <span class="sub">Movimento de Pernas/Pés</span>
+    <ul>
+      <li>Jejari Bal Bakkwo <span class="hangul">(제자리 발 바꾸)</span></li>
+      <span class="sub">Troca de perna no lugar.</span>
+      <li>Georeo Mullemyeo <span class="hangul">(걸어 물러며)</span></li>
+      <span class="sub">Recuando sem trocar de base.</span>
+      <li>Bakkwomyeo Mullemeyo <span class="hangul">(바꾸며 물러며)</span></li>
+      <span class="sub">Recuando enquanto troca a base.</span>
+    </ul>
+    <hr>
+    <h3>Jayu Sul (자유술)</h3>
+    <span class="sub">Técnicas Livres</span>
+    <ul>
+      <li>Ap Chagi + Apkubi Momtong Jireugi <span class="hangul">(앞차기 + 앞굽이 몸통 지르기)</span></li>
+      <li>Ap Chagi + Apkubi Arae Makgi <span class="hangul">(앞차기 + 앞굽이 아래 막기)</span></li>
+      <li>Dollyeo Chagi + Apkubi Eolgul Jireugi <span class="hangul">(돌려차기 + 앞굽이 얼굴 지르기)</span></li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta Livre</span>
+    <ul>
+      <li>Dubong Chagi Kyorugi <span class="hangul">(두번 차기 겨루기)</span></li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma / Sequência de Movimentos</span>
+    <ul>
+      <li>Jangsaeng Namu <span class="hangul">(장생 나무)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box cinza">
+  <div class="title" onclick="toggleBox('g9')">9º Gub (구급 / Gu Geup)<span id="icon-g9">▼</span>
+  </div>
+  <div id="g9" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Ap Kubi Momtong Makgi<span class="hangul">(앞굽이 몸통 막기)</span></li>
+      <li>Ap Kubi Momtong An Makgi<span class="hangul">(앞굽이 몸통 안 막기)</span></li>
+      <li>Ap Kubi An Palmok Momtong Bakkat Makgi<span class="hangul">(앞굽이 안팔목 몸통 바깥 막기)</span></li>
+      <li>Ap Kubi Momtong Baro Jireugi<span class="hangul">(앞굽이 몸통 바로 지르기)</span></li>
+      <li>Ap Kubi Arae Makgi + Momtong Baro Jireugi<span class="hangul">(앞굽이 아래 막기 + 몸통 바로 지르기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <span class="sub">Técnicas em Dwit Bal Nagamyeo (뒷발 나가며)</span>
+    <ul>
+      <li>Mireo Chagi<span class="hangul">(밀어 차기)</span></li>
+      <li>Naeryeo Chagi<span class="hangul">(내려 차기)</span></li>
+      <li>Bandal Chagi<span class="hangul">(반달 차기)</span></li>
+      <li>Yeop Chagi<span class="hangul">(옆 차기)</span></li>
+      <li>Huryeo Chagi<span class="hangul">(후려 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Nolim (발 놀림)</h3>
+    <span class="sub">Movimento de Pernas/Pés</span>
+    <ul>
+      <li>Gachi Nagamyeo / Mulleomyeo<span class="hangul">(같이 나가며/물리며)</span></li>
+      <span class="sub">Avançar/Recuar enquanto executa a técnica simultaneamente.</span>
+      <li>Rang Georeum Nagamyeo / Mulleomyeo <span class="hangul">(랑 걸음 나가며 / 물러며)</span></li>
+      <span class="sub">Avançar/Recuar e depois executa a técnica.</span>
+      <li>Sokim-su<span class="hangul">(속임수)</span></li>
+      <span class="sub">Finta.</span>
+      <li>Arae/Eolgul Makgi<span class="hangul">(아래/얼굴 막기)</span></li>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>Rang Georeum Bandal Chagi<span class="hangul">(랑걸음 반달차기)</span></li>
+      <span class="sub">Executar Bandal com deslocamento de passos.</span>
+      <li>Rang Georeum Naeryeo Chagi<span class="hangul">(랑걸음 내려차기)</span></li>
+      <span class="sub">Executar Naeryeo com deslocamento de passos.</span>
+      <li>Gachi Nagamyeo Dollyeo Chagi<span class="hangul">(같이 나가며 돌려차기)</span></li>
+      <span class="sub">Executar Dollyeo simultaneamente ao avanço.</span>
+      <li>Gachi Nagamyeo Bandal Chagi<span class="hangul">(같이 나가며 반달차기)</span></li>
+      <span class="sub">Executar Bandal simultaneamente ao avanço.</span>
+      <li>Rang Georeum Dollyeo Chagi<span class="hangul">(랑걸음 돌려차기)</span></li>
+      <span class="sub">Executar Dollyeo com deslocamento de passos.</span>
+    </ul>
+    <hr>
+    <h3>Matchwo Kyorugi (맞춰 겨루기)</h3>
+    <span class="sub">Luta combinada</span>
+    <ul>
+      <li>Variações de chutes em Jejari com 2 raquetes (ação e reação).</li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>1x1 (sem contato)</li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk Il Jang (태극 1장)</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="box amarela">
+  <div class="title" onclick="toggleBox('g8')">8º Gub (팔급 / Pal Geup)<span id="icon-g8">▼</span>
+  </div>
+  <div id="g8" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+      <ul>
+        <li>Ap Kubi Eolgul Baro Sewo Jireugi <span class="hangul">(앞굽이 얼굴 바로 세워 지르기)</span></li>
+        <li>Ap Kubi Baro Jetchio Jireugi <span class="hangul">(앞굽이 바로 제치기 지르기)</span></li>
+        <li>Ap Kubi Baro Dollyeo Jireugi <span class="hangul">(앞굽이 바로 돌려 지르기)</span></li>
+        <li>Ap Kubi Eolgul Deungjumeok Ap Chigi <span class="hangul">(앞굽이 얼굴 등주먹 앞 치기)</span></li>
+        <li>Ap Chagi + Ap Kubi Momtong Dubon Jireugi <span class="hangul">(앞차기 앞굽이 몸통 두 번 지르기)</span></li>
+      </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Ap Bal Ap Chagi<span class="hangul">(앞발 앞차기)</span></li>
+      <li>Ap Bal Bandal Chagi <span class="hangul">(앞발 반달 차기)</span></li>
+      <li>Ap Bal Yeop Chagi <span class="hangul">(앞발 옆차기)</span></li>
+      <li>Ap Bal Naeryo Chagi <span class="hangul">(앞발 내려 차기)</span></li>
+      <li>Jajinbal Naeryeo Chagi <span class="hangul">(자진발 내려차기)</span></li>
+      <li>Jajinbal Bal Mireo Chagi <span class="hangul">(자진발 밀어 차기)</span></li>
+      <li>Jajinbal Bal Huryeo Chagi <span class="hangul">(자진발 후려 차기)</span></li>
+      <li>Bakkwo Dollyeo Chagi <span class="hangul">(바꿔 돌려 차기)</span></li>
+      <li>Bakkwo Naeryo Chagi <span class="hangul">(바꿔 내려 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Nolim (발 놀림)</h3>
+    <span class="sub">Movimento de Pernas/Pés</span>
+    <ul>
+      <li>Mikuro/Kkuro Nagamyeo Mulleomyeo <span class="hangul">(미끄러 / 끌어 나가며 물리며)</span></li>
+      <span class="sub">Avançar/Recuar deslizando.</span>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>Kkuro Mulleomyeo Bandal Chagi <span class="hangul">(끌어 물리며 반달 차기)</span></li>
+      <span class="sub">Deslizar para frente executando Bandal.</span>
+      <li>Rang Georeum Mulleomyeo Dollyeo Chagi <span class="hangul">(랑걸음 물리며 돌려 차기)</span></li>
+      <span class="sub">Recuar com espaços e executar o Dolleyo.</span>
+      <li>Gachi Mulleomyeo Bandal Chagi <span class="hangul">(같이 물리며 반달 차기)</span></li>
+      <span class="sub">Executar Bandal simultaneamente enquanto recua.</span>
+      <li>Ap Bal Dwiro Gulleo Naeryo Chagi <span class="hangul">(앞발 뒤로 굴러 내려 차기)</span></li>
+      <span class="sub">Girar para trás executando um Naeryo com a perna da frente.</span>
+    </ul>
+    <hr>
+    <h3>Matchwo Kyorugi (맞춰 겨루기)</h3>
+    <span class="sub">Luta combinada</span>
+    <ul>
+      <li>Variações de chutes em Jejari, de costas para o alvo, com 2 raquetes (ação e reação).</li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>1x1 (sem contato)</li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk I Jang <span class="hangul">(태극 2장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box laranja">
+  <div class="title" onclick="toggleBox('g7')">7º Gub (칠급 / Chil Geup)<span id="icon-g7">▼</span></div>
+  <div id="g7" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Dwit Kubi Hansonnal Arae Makgi <span class="hangul">(뒷굽이 한손날 아래 막기)</span></li>
+      <li>Dwit Kubi Hansonnal Eolgul Makgi <span class="hangul">(뒷굽이 한손날 얼굴 막기)</span></li>
+      <li>Dwit Kubi Hansonnal Momtong Makgi <span class="hangul">(뒷굽이 한손날 몸통 막기)</span></li>
+      <li>Dwit Kubi Hansonnal Momtong Yeop Makgi <span class="hangul">(뒷굽이 한손날 몸통 옆 막기)</span></li>
+      <li>Dwit Kubi Hansonnal Deung Momtong Makgi <span class="hangul">(뒷굽이 한손날 등 몸통 막기)</span></li>
+      <li>Dwit Kubi Hansonnal An Chigi <span class="hangul">(뒷굽이 한손날 안 치기)</span></li>
+      <li>Dwit Kubi Hansonnal Bakkat Chigi <span class="hangul">(뒷굽이 한손날 바깥 치기)</span></li>
+      <li>Dwit Kubi Sonnal Momtong Makgi <span class="hangul">(뒷굽이 손날 몸통 막기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Narae Chagi <span class="hangul">(나래 차기)</span></li>
+      <li>Bandero Dollyeo Chagi <span class="hangul">(반대로 돌려 차기)</span></li>
+      <li>Bandero Naeryo Chagi <span class="hangul">(반대로 내려 차기)</span></li>
+      <li>Dwit Chagi <span class="hangul">(뒤 차기)</span></li>
+      <li>Mom Dollyeo Yeop Chagi <span class="hangul">(몸 돌려 옆 차기)</span></li>
+      <li>Mom Dollyeo Naeryo Chagi <span class="hangul">(몸 돌려 내려 차기)</span></li>
+      <li>Mom Dollyeo Huryeo Chagi <span class="hangul">(몸 돌려 후려 차기)</span></li>
+      <li>Rang Georeum Dwit Chagi <span class="hangul">(랑걸음 뒤 차기)</span></li>
+      <li>Rang Georeum Mom Dollyo Huryeo Chagi <span class="hangul">(랑걸음 몸돌려 후려 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Nolim (발 놀림)</h3>
+    <span class="sub">Movimento de Pernas/Pés</span>
+    <ul>
+      <li>Mikuro/Kkuro Nagamyeo Mulleomyeo <span class="hangul">(미끄러 / 끌어 나가며 물리며)</span></li>
+      <li>Apbal Dwiro Gulleo Chagi <span class="hangul">(앞발 뒤로 굴러 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>Mikuro/Kkuro Mulleomyeo Bandal Chagi [Diagonal] <span class="hangul">(끌어 물리며 반달 차기)</span></li>
+      <span class="sub">Recuar deslizando para diagonal enquanto executa Bandal.</span>
+      <li>Mikuro/Kkuro Mulleomyeo Narae Dwi Chagi <span class="hangul">(끌어 물리며 나래 뒤 차기)</span></li>
+      <span class="sub">Executar Narae Dwi Chagi enquanto recua.</span>
+      <li>Bakkwo Mulleomyeo Bandal Chagi Narae Chagi <span class="hangul">(바꿔 물리며 반달 차기 나래 차기)</span></li>
+      <span class="sub">Recuar trocando de base + executar Bandal + Narae</span>
+      <li>Bakkwo Mulleomyeo Bandal Chagi Mom Dollyeo Huryeo Chagi <span class="hangul">(바꿔 머무르며 반달 차기 몸 돌려 후려 차기)</span></li>
+      <span class="sub">Recuard + Bandal + Mom Dollyeo Huryeo</span>
+    </ul>
+    <hr>
+    <h3>Matchwo Kyorugi (맞춰 겨루기)</h3>
+    <span class="sub">Luta combinada</span>
+    <ul>
+      <li>Variações de chutes e simulação de Kyorugi contra alvo em movimento.</li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>Sihap Kyorugui <span class="hangul">(시합 겨루기)</span></li>
+      <span class="sub">Luta de Competição</span>
+      <li>1x1 (com protetores)</li>
+    </ul>
+    <hr>
+    <h3>Gyeokpa (격파)</h3>
+    <span class="sub">Quebramento</span>
+    <ul>
+      <li>Naeryo Chagi <span class="hangul">(내려 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk Sam Jang <span class="hangul">(태극 3장)</span></li>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk I Jang <span class="hangul">(태극 2장)</span></li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="box verde">
+  <div class="title" onclick="toggleBox('g6')">6º Gub (육급 / Yuk Geup)<span id="icon-g6">▼</span></div>
+  <div id="g6" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Ap Kubi Jebipoom Mok Chigi <span class="hangul">(앞굽이 제비품 목 치기)</span></li>
+      <li>Ap Chagi + Ap Kubi Momtong Baro Jireugi <span class="hangul">(앞차기 + 앞굽이 몸통 바로 지르기)</span></li>
+      <li>Ap Chagi + Ap Kubi Olgul Deungjumeok Ap Chigi <span class="hangul">(앞차기 + 앞굽이 얼굴 등주먹 앞치기)</span></li>
+      <li>Ap Seogi + Momtong Makgi + Momtong Baro Jireugi <span class="hangul">(앞서기 + 몸통 막기 + 몸통 바로 지르기)</span></li>
+      <li>Ap Kubi + Momtong Makgi + Momtong Dubeon Jireugi <span class="hangul">(앞굽이 + 몸통 막기 + 몸통 두번 지르기)</span></li>
+      <li>Dwit Kubi Sonnal Momtong Makgi + Ap Kubi Pyeon Son Keut Sewo Jireugi <span class="hangul">(뒤굽이 손날 몸통 막기 + 앞굽이 편손끝 세워 지르기)</span></li>
+      <li>Dwit Kubi Momtong Bakkat Makgi + Ap Chagi + Dwit Kubi Momtong An Makgi <span class="hangul">(뒤굽이 몸통 바깥 막기 + 앞차기 + 뒤굽이 몸통 안 막기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+      <ul>
+        <li>Ieo Sokeo Ap Chagi + Dollyeo Chagi <span class="hangul">(이어 섞어 앞차기 + 돌려차기)</span></li>
+        <li>Ieo Sokeo Dollyeo Chagi + Mom Dollyeo Huryeo Chagi <span class="hangul">(이어 섞어 돌려차기 + 몸 돌려 후려 차기)</span></li>
+        <li>Ieo Sokeo Naeryo Chagi + Bandero Naeryo Chagi <span class="hangul">(이어 섞어 내려 차기 + 반대로 내려 차기)</span></li>
+        <li>Ieo Sokeo Dollyeo Chagi + Bandero Dollyeo Chagi <span class="hangul">(이어 섞어 돌려 차기 + 반대로 돌려 차기)</span></li>
+        <li>Ieo Sokeo Narae Chagi + Mom Dollyeo Yeop Chagi <span class="hangul">(이어 섞어 나래 차기 + 몸 돌려 옆 차기)</span></li>
+        <li>Ieo Sokeo Jajinbal Bal Naeryo Chagi + Bakkwo Dwit Chagi <span class="hangul">(이어 섞어 자진 발 내려 차기 + 바꿔 뒤 차기)</span></li>
+        <li>Ieo Sokeo Ap Bal Bandal Chagi + Bakkwo Mom Dollyeo Huryeo Chagi <span class="hangul">(이어 섞어 앞발 반달 차기 + 바꿔 몸 돌려 후려 차기)</span></li>
+      </ul>
+    <hr>
+    <h3>Matchwo Kyorugi (맞춰 겨루기)</h3>
+    <span class="sub">Luta combinada</span>
+    <ul>
+      <li>Variações de chutes e simulação de Kyorugi contra 2 alvos com 2 pessoas em movimento. Variação quando há um kihap de um dos colegas.</li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>Sihap Kyorugui <span class="hangul">(시합 겨루기)</span></li>
+      <span class="sub">Luta de Competição</span>
+      <li>1x1 (com protetores)</li>
+    </ul>
+    <hr>
+    <h3>Gyeokpa (격파)</h3>
+    <span class="sub">Quebramento</span>
+    <ul>
+      <li>Dwit Chagi <span class="hangul">(뒤 차기)</span> ou Mom Dollyeo Huryeo Chagi <span class="hangul">(몸 돌려 후려 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk Sa Jang <span class="hangul">(태극 4장)</span></li>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk Sam Jang <span class="hangul">(태극 3장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box verde-escuro">
+  <div class="title" onclick="toggleBox('g5')">5º Gub (오급 / O Geup)<span id="icon-g5">▼</span></div>
+  <div id="g5" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Ap Kubi Arae Makgi + Uen Sogi + Me Jumeok Naeryo Chigi <span class="hangul">(앞굽이 아래 막기 + 왼 서기 메 주먹 내려 치기)</span></li>
+      <li>Ap Kubi Momtong Makgi + Momtong An Makgi <span class="hangul">(앞굽이 몸통 막기 + 몸통 안 막기)</span></li>
+      <li>Dwit Kubi Hansonnal Yeop Makgi + Ap Kubi Palkup Dollyeo Chigi <span class="hangul">(뒤 굽이 한손날 옆 막기 + 앞 굽이 팔꿈치 돌려 치기)</span></li>
+      <li>Ap Kubi Arae Makgi + Momtong An Makgi <span class="hangul">(앞굽이 아래 막기 + 몸통 안 막기)</span></li>
+      <li>Yeop Chagi + Ap Kubi + Palkup Pyojeok Chigi <span class="hangul">(옆 차기 + 앞굽이 + 팔꿈치 표적 치기)</span></li>
+      <li>Dwit Kkoa Seogi Eolgul Deungjumeok Ap Tchigui <span class="hangul">(뒤 꼬아 서기 얼굴 등주먹 앞 치기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Twieo Bakkwo Ap Chagi <span class="hangul">(뛰어 바꿔 앞차기)</span></li>
+      <li>Twieo Bakkwo Dollyeo Chagi <span class="hangul">(뛰어 바꿔 돌려차기)</span></li>
+      <li>Twieo Bakkwo Mireo <span class="hangul">(뛰어 바꿔 밀어차기)</span></li>
+      <li>Twieo Bakkwo Naeryo Chagi <span class="hangul">(뛰어 바꿔 내려차기)</span></li>
+      <li>Twieo Ap Bal Yeop Chagi <span class="hangul">(뛰어 앞발 옆차기)</span></li>
+      <li>Twieo Ap Bal Huryeo Chagi <span class="hangul">(뛰어 앞발 후려차기)</span></li>
+      <li>Twieo Dwit Chagi <span class="hangul">(뛰어 뒤차기)</span></li>
+      <li>Twieo Mom Dollyeo Bakkat Chagi <span class="hangul">(뛰어 몸돌려 바깥차기)</span></li>
+      <li>Twieo Mom Dollyeo Huryeo Chagi <span class="hangul">(뛰어 몸돌려 후려차기)</span></li></li>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>2 alvos fixos Momtong e Eolgul, variações de chutes (45 segundos).</li>
+    </ul>
+    <hr>
+    <h3>Matchwo Kyorugi (맞춰 겨루기)</h3>
+    <span class="sub">Luta combinada</span>
+    <ul>
+      <li>Variações de chutes e simulação de Kyorugi, sequência de no máximo 3 chutes e após a execução da sequência deve haver uma esquiva e um contra ataque.</li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>Sihap Kyorugui <span class="hangul">(시합 겨루기)</span></li>
+      <span class="sub">Luta de Competição</span>
+      <li>1x1 (com protetores)</li>
+    </ul>
+    <hr>
+    <h3>Gyeokpa (격파)</h3>
+    <span class="sub">Quebramento</span>
+    <ul>
+      <li>Variações de Twieo Chagi <span class="hangul">(뛰어 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk O Jang <span class="hangul">(태극 5장)</span></li>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk Sa Jang <span class="hangul">(태극 4장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box azul"><div class="title" onclick="toggleBox('g4')">4º Gub (사급 / Sa Geup)<span id="icon-g4">▼</span></div>
+  <div id="g4" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Ap Kubi Are Makgi + Ap Chagi + Dwit Kubi Momtong Bakkat Makgi <span class="hangul">(앞굽이 아래 막기 + 앞 차기 + 뒷굽이 몸통 바깥 막기)</span></li>
+      <li>Ap Kubi Hansonnal Eolgul Bitureo Makgi <span class="hangul">(앞 굽이 한손날 얼굴 비틀어 막기)</span></li>
+      <li>Ap Kubi Eolgul Bakkat Makgi + Momtong Baro Jireugi <span class="hangul">(앞굽이 얼굴 바깥 막기 + 몸통 바른 지르기)</span></li>
+      <li>Ap Kubi Batangson Momtong Makgi + Momtong Baro Jireugi <span class="hangul">(앞굽이 바탕손 몸통 막기 + 몸통 바른 지르기)</span></li>
+      <li>Dwit Kubi Geumgang Momtong Makgi <span class="hangul">(뒷 굽이 금강 몸통 막기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Dubal Dangsang Ap Chagui <snap class="hangul">(두발 당상 앞 차기)</snap></li>
+      <li>Dubal Dangsang Dollyeo Chagui <snap class="hangul">(두발 당상 돌려 차기)</snap></li>
+      <li>Dubal Dangsang Yeop Chagui <snap class="hangul">(두발 당상 옆 차기)</snap></li>
+      <li>Dubal Dangsang Naeryo Chagui <snap class="hangul">(두발 당상 내려 차기)</snap></li>
+      <li>Dubal Dangsang Mom Dollyeo Yeop Chagui <snap class="hangul">(두발 당상 몸 돌려 옆 차기)</snap></li>
+      <li>Dubal Dangsang Mom Dollyeo Huryeo Chagui <snap class="hangul">(두발 당상 몸 돌려 후려 차기)</snap></li>
+      <li>Bandero Pyojeok An Chagui <snap class="hangul">(반대로 표적 안 차기)</snap></li>
+      <li>Ieo Sokeo Bandero Dollyeo Chagui + Mom Dollyeo Yeop Chagui <snap class="hangul">(이어 섞어 반대로 돌려 차기 + 몸 돌려 옆 차기)</snap></li>
+      <li>Ieo Sokeo Narae Chagui + Bandero Dollyeo Chagui + Mom Dollyeo Huryeo Chagui <snap class="hangul">(이어 섞어 나래 차기 + 반대로 돌려 차기 + 몸 돌려 후려 차기)</snap></li>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>Ap Oreun Yeonsok Bal Chagi <span class="hangul">(앞 오른 연속 발 차기)</span> 
+      <span class="sub">5 chutes contínuos com a perna direita, limitando distância</span>
+      <li>Ap Uen Yeonsok Bal Chagi <span class="hangul">(앞 왼 연속 발 차기)</span></li>
+      <span class="sub">5 chutes contínuos com a perna esquerda, limitando distância</span>
+      <li>Ap Yeolbeom Bal Chagi <span class="hangul">(앞 열범 발 차기)</span></li>
+      <span class="sub">10 chutes contínuos livres com ambas as pernas, para frente</span>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>Sihap Kyorugui <span class="hangul">(시합 겨루기)</span></li>
+      <span class="sub">Luta de Competição</span>
+      <li>1x2 (com protetores) - Alternandos por comando do professor</li>
+    </ul>
+    <hr>
+    <h3>Gyeokpa (격파)</h3>
+    <span class="sub">Quebramento</span>
+    <ul>
+      <li>Dubal Dangsang Mom Dollyeo Huryeo Chagui <span class="hangul">(두발 당상 몸돌려 후려차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk Yuk Jang <span class="hangul">(태극 6장)</span></li>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk O Jang <span class="hangul">(태극 5장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box roxa"><div class="title" onclick="toggleBox('g3')">3º Gub (삼급 / Sam Geup)<span id="icon-g3">▼</span></div>
+  <div id="g3" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Beom Sogi Batangson Momtong An Makgi <span class="hangul">(범 서기 바탕손 몸통 안 막기)</span></li>
+      <li>Beom Sogi Momtong Makgi <span class="hangul">(범 서기 몸통 막기)</span></li>
+      <li>Dwit Kubi Sonnal Arae Makgi <span class="hangul">(뒷 굽이 손날 아래 막기)</span></li>
+      <li>Beom Seogi Batangson Geodeureo An Makgi + Geodeureo Eolgul Ap Chigi <span class="hangul">(범 서기 바탕손 거들어 안 막기 + 거들어 얼굴 앞 치기)</span></li>
+      <li>Ap Kubi Dubon Gawi Maki <span class="hangul">(앞 굽이 두번 가위 막기)</span></li>
+      <li>Ap Kubi Momtong Haecheo Makgi <span class="hangul">(앞 굽이 몸통 헤쳐 막기)</span></li>
+      <li>Mureup Ap Chigi + Dwit Kkoa Seogi Jecheo Jireugi + Ap Kubi Otkoreo Arae Makgi <span class="hangul">(무릎 앞 치기 + 뒤 꼬아 서기 제쳐 지르기 + 앞 굽이 옷걸어 아래 막기)</span></li>
+      <li>Ap Seogi Eolgul Bakkat Chigi + Pyojeok An Chagi + Juchum Seogi Palkup Pyojeok Chigi <span class="hangul">(앞 서기 얼굴 바깥 치기 + 표적 안 차기 + 주춤 서기 팔꿈치 표적 치기)</span></li>
+      <li>Juchum Seogi Hansonnal Yeop Makgi <span class="hangul">(주춤 서기 한손날 옆 막기)</span></li>
+      <li>Juchum Seogi Yeop Jireugi <span class="hangul">(주춤 서기 옆 지르기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Geodeup Ap Chagi <span class="hangul">(거듭 앞 차기)</span></li>
+      <li>Geodeup Dollyeo Chagi <span class="hangul">(거듭 돌려 차기)</span></li>
+      <li>Geodeup Yeop Chagi <span class="hangul">(거듭 옆 차기)</span></li>
+      <li>Sogeo Ap Chagi Dollyeo Chagi <span class="hangul">(서거 앞 차기 돌려 차기)</span></li>
+      <li>Sogeo Huryeo Chagi Dollyeo Chagi <span class="hangul">(서거 후려 차기 돌려 차기)</span></li>
+      <li>Sogeo Naeryo Chagi Yeop Chagi <span class="hangul">(서거 내려 차기 옆 차기)</span></li>
+      <li>Sogeo Biteuro Chagi Bandal Chagi <span class="hangul">(서거 비틀어 차기 반달 차기)</span></li>
+      <li>Geodeup Mom Dollyeo Huryeo Chagi <span class="hangul">(거듭 몸 돌려 후려 차기)</span></li>
+      <li>Mom Dollyeo Geodeup Yeop Chagi <span class="hangul">(몸 돌려 거듭 옆 차기)</span></li>
+      <li>Mom Dollyeo Sogeo Huryeo Chagi Dollyeo Chagi <span class="hangul">(몸 돌려 서거 후려 차기 돌려 차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>10 chutes contínuos em Mikuro Bal com a perna no ar (Orun e Uen).</li>
+      <li>Chutes contínuos em 3 alvos fixos em Momtong, Eolgul e Dwit.</li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>Sihap Kyorugui <span class="hangul">(시합 겨루기)</span></li>
+      <span class="sub">Luta de Competição</span>
+      <li>1x3 (com protetores) - Alternandos por comando do professor</li>
+    </ul>
+    <hr>
+    <h3>Gyeokpa (격파)</h3>
+    <span class="sub">Quebramento</span>
+    <ul>
+      <li>Geodeup Chagi <span class="hangul">(거듭 차기)</span> ou Sogeo Chagi <span class="hangul">(서거 차기)</span>.</li>
+    </ul>
+    <hr>
+    <h3>Hanbeom Kyorugi (한번 겨루기)</h3>
+    <span class="sub">Luta de um passo.</span>
+    <ul>
+      <li>Com numeração de Sebeon Daeryon <span class="hangul">(세번 대련)</span> 1 ao 25, execução pelo direito e esquerdo.</li>
+      <span class="sub">Luta de três passos.</span>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk Chill Jang <span class="hangul">(태극 7장)</span></li>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk Yuk Jang <span class="hangul">(태극 6장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box vermelha">
+  <div class="title" onclick="toggleBox('g2')">2º Gub (이급 / I Geup)<span id="icon-g2">▼</span></div><div id="g2" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Todas as técnicas de Son Gisul do 9°Gub ao 1°Gub</li>
+      <li>Dwit Kubi Geodeureo Momtong Makgi + Ap Kubi Momtong Baro Jireugi <span class="hangul">(뒷 굽이 거들어 몸통 막기 + 앞 굽이 몸통 바로 지르기)</span></li>
+      <li>Ap Kubi Oesanteul Makgi + Dangkyeo Teok Chigi <span class="hangul">(앞 굽이 외산틀 막기 + 당겨 턱 치기)</span></li>
+      <li>Beom Seogi Sonnal Momtong Makgi + Ap Bal Ap Chagi + Ap Momtong Baro Jireugi + Beom Seogi Batangson Momtong Makgi <span class="hangul">(범서기 손날 몸통 막기 + 앞 발 앞 차기 + 앞 몸통 바로 지르기 + 범서기 바탕손 몸통 막기)</span></li>
+      <li>Dwit Kubi Geodeureo Arae Makgi <span class="hangul">(뒷 굽이 거들어 아래 막기)</span></li>
+      <li>Dwit Kubi Hansonnal Yeop Makgi + Ap Kubi Palkup Dollyeo Chigi Eolgul + Ap Chigi + Momtong Bandae Jireugi <span class="hangul">(뒷 굽이 한손날 옆 막기 + 앞 굽이 팔꿈치 돌려 치기 얼굴 + 앞 치기 + 몸통 반대 지르기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Demonstração em raquetes.</li>
+      <li>Modeum Bal Ap Chagi <span class="hangul">(모듬 발 앞 차기)</span></li>
+      <li>Modeum Bal Dollyeo Chagi <span class="hangul">(모듬 발 돌려 차기)</span></li>
+      <li>Modeum Bal Yeop Chagi <span class="hangul">(모듬 발 옆 차기)</span></li>
+      <li>Gawi Chagi <span class="hangul">(가위 차기)</span></li>
+      <li>Twieo Sebeon Ap Chagi <span class="hangul">(뛰어 세번 앞 차기)</span></li>
+      <li>Twieo Sebeon Ap Chagi Naeryo Chagi <span class="hangul">(뛰어 세번 앞 차기 내려 차기)</span></li>
+      <li>Twieo Sebeon Yeop Chagi <span class="hangul">(뛰어 세번 옆 차기)</span></li>
+      <li>Gongjung Ieo Chagi <span class="hangul">(공중 이어 차기)</span></li>
+      <span class="sub">Chute alternando (Yeop + Jireugi)</span>
+      <li>Ilja Chagi <span class="hangul">(일자 차기)</span></li>
+      <span class="sub">Chute em linha reta (Yeop + Bitureo).</span>
+      <li>Ilja Chagi Dollyeo Chagi <span class="hangul">(일자 차기 돌려차기)</span></li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>Sihap Kyorugui <span class="hangul">(시합 겨루기)</span></li>
+      <span class="sub">Luta de Competição</span>
+      <li>1x1 e 2x1 (com protetores)</li>
+    </ul>
+    <hr>
+    <h3>Gyeokpa (격파)</h3>
+    <span class="sub">Quebramento</span>
+    <ul>
+      <li>Execuções de Jumeok <span class="hangul">(주먹)</span>, Bal <span class="hangul">(발)</span>, Twieo <span class="hangul">(뛰어)</span>, Noppi <span class="hangul">(높이)</span>, Mom Dollyeo <span class="hangul">(몸돌려)</span> ou Huryeo<span class="hangul">(후려)</span></li>
+      <span class="sub">Respectivamente: punho, pé, pulo e altura.</span>
+    </ul>
+    <hr>
+    <h3>Sebeon Kyorugi (세번 겨루기)</h3>
+    <span class="sub">Luta de três passos.</span>
+    <ul>
+      <li>1 ao 25.</li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk Pal Jang <span class="hangul">(태극 8장)</span></li>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk Chill Jang <span class="hangul">(태극 7장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box vermelha-escura"><div class="title" onclick="toggleBox('g1')">1º Gub (일급 / Il Geup)<span id="icon-g1">▼</span>
+  </div><div id="g1" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>10°GUB ao 2°GUB</li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>10°GUB ao 2°GUB</li>
+    </ul>
+    <hr>
+    <h3>Hosin Sul <span class="hangul">(호신술)</span></h3>
+    <span class="sub">Defesa pessoal</span>
+    <ul>
+      <li>2 contra pegada no pulso</li>
+      <li>2 contra pegada na roupa</li>
+      <li>2 contra soco</li>
+      <li>2 contra chute</li>
+      <li>2 contra defesa de solo</li>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>Chutes contínuos em 4 alvos fixos sendo 2 Momtong, 2 Eolgul nas 4 direções.</li>
+    </ul>
+    <hr>
+    <h3>Gyeokpa (격파)</h3>
+    <span class="sub">Quebramento</span>
+    <ul>
+      <li>Execuções de Jumeok <span class="hangul">(주먹)</span>, Bal <span class="hangul">(발)</span>, Twieo <span class="hangul">(뛰어)</span>, Noppi <span class="hangul">(높이)</span>, Mom Dollyeo <span class="hangul">(몸돌려)</span> ou Huryeo<span class="hangul">(후려)</span>.</li>
+    </ul>
+    <hr>
+    <h3>Jayu Kyorugi (자유 겨루기)</h3>
+    <span class="sub">Luta livre</span>
+    <ul>
+      <li>Sihap Kyorugui <span class="hangul">(시합 겨루기)</span></li>
+      <span class="sub">Luta de Competição</span>
+      <li>1x1 e 2x1 (com protetores)</li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk Pal Jang <span class="hangul">(태극 8장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box preta">
+  <div class="title" onclick="toggleBox('dan1')">
+    <div class="title-left">
+      <span>1º DAN (일단 / Il Dan)</span>
+      <div class="dan-bars">
+        <div class="dan-bar">
+        </div>
+      </div>
+    </div>
+    <span id="icon-dan1">▼</span>
+  </div>
+  <div id="dan1" class="content hidden">
+    <h3>Son Gisul (손 기술)</h3>
+    <span class="sub">Técnicas de Mão</span>
+    <ul>
+      <li>Todas as técnicas de Son Gisul do 9°GUB ao 1°GUB.</li>
+      <li>Ap Kubi Arae Makgi + Kaljebi <span class="hangul">(앞 굽이 아래 막기 + 갈제비)</span></li>
+      <li>Ap Kubi Mureup Kokki <span class="hangul">(앞굽이 무릎 꺾기)</span></li>
+      <li>Ap Kubi An Palmok Momtong Hechyeo Makgi <span class="hangul">(앞굽이 안팔목 몸통 헤쳐 막기)</span></li>
+      <li>Juchum Seogi Jumeok Pyojeok Jireugi <span class="hangul">(주춤 서기 주먹 표적 지르기)</span></li>
+      <li>Ap Kubi Pyeon Sonkkeut Arae Jecheo Jireugi <span class="hangul">(앞 굽이 편 손끝 아래 제쳐 지르기)</span></li>
+      <li>Ap Seogi Nulleo Makgi <span class="hangul">(앞서기 눌러 막기)</span></li>
+      <li>Juchum Seogi Palkup Yeop Chigi <span class="hangul">(주춤 서기 팔꿈치 옆 치기)</span></li>
+      <li>Ap Kubi Sonnal An Chigi + Arae Makgi <span class="hangul">(앞굽이 손날 안 치기 + 아래 막기)</span></li>
+      <li>Ap Kubi Sonnal Bakkat Chigi + Arae Makgi <span class="hangul">(앞굽이 손날 바깥 치기 + 아래 막기)</span></li>
+      <li>Ap Kubi Batangson Teok Chigi <span class="hangul">(앞굽이 바탕손 턱 치기)</span></li>
+      <li>Hakdari Seogi Geumgang Makgi <span class="hangul">(학다리 서기 금강 막기)</span></li>
+      <li>Juchum Seogi Gundeul Chigi <span class="hangul">(주춤 서기 군들 치기)</span></li>
+      <li>Juchum Seogi Santul Makgi <span class="hangul">(주춤 서기 산틀 막기)</span></li>
+      <li>Juchum Seogi An Palmok Momtong Hechyeo Makgi <span class="hangul">(주춤 서기 안팔목 몸통 헤쳐 막기)</span></li>
+    </ul>
+    <hr>
+    <h3>Bal Gisul (발기술)</h3>
+    <span class="sub">Técncias de Chute/Perna</span>
+    <ul>
+      <li>Todas as técnicas do Bal Gisul do 9°GUB ao 1°GUB, demonstração raquetes.</li>
+      <li>Ieo Sokeo Geodeup Ap Chagi + Sokeo Dollyeo Chagi + Yeop Chagi + Ap Kubi Ran Sonnal Arae Makgi + Baro Agwi Son Kaljebi</li> 
+        <span class="sub">(이어 섞어 거듭 앞차기 + 섞어 돌려차기 + 옆차기 + 앞굽이 란 손날 아래막기 + 바로 아귀손 칼재비)</span>
+      <li>Ieo Sokeo Geodeup Yeop Chagi + Sokeo An Chagi + Bakkat Chagi + Ap Kubi Mureup Kokki</li>
+        <span class="sub">(이어 섞어 거듭 옆차기 + 섞어 안차기 + 바깥차기 + 앞굽이 무릎 꺾기)</span>
+      <li>Ieo Sokeo Geodeup Dollyeo Chagi + Bandero Sokeo Dollyeo Chagi + Yeop Chagi + Juchum Seogi Palkup Yeop Chigi</li>
+        <span class="sub">(이어 섞어 거듭 돌려차기 + 반대로 섞어 돌려차기 + 옆차기 + 주춤 서기 팔꿈치 옆치기)</span>
+      <li>Ieo Sokeo Mondollyeo Geodeup Yeop Chagi + Sokeo Narae Chagi + Yeop Chagi + Ap Kubi Ran Sonnal Bakkat Chigi + Arae Makgi</li> 
+        <span class="sub">(이어 섞어 몸돌려 거듭 옆차기 + 섞어 나래차기 + 옆차기 + 앞굽이 란 손날 바깥치기 + 아래막기)</span>
+      <li>Sokeo An Chagi + Yeop Chagi + Geodeup Mondollyeo Huryeo Chagi + Ap Kubi Baro Agwi Son Kaljebi</li>
+        <span class="sub">(섞어 안차기 + 옆차기 + 거듭 몸돌려 후려차기 + 앞굽이 바로 아귀손 칼재비)</span>
+      <li>Sokeo Biteuro Chagi + Bandal Chagi + Sokeo Bandero Naeryeo Chagi + Yeop Chagi + Bandero Naeryeo Chagi + Yeop Chagi + Juchum Seogi Geondeul Chigi</li>
+        <span class="sub">(섞어 비틀어 차기 + 반달 차기 + 섞어 반대로 내려 차기 + 옆차기 + 반대로 내려 차기 + 옆차기 + 주춤 서기 건들 치기)</span>
+      <li>Hakki Dari Seogi Geumgang Makgi + Sokeo Huryeo Chagi + Yeop Chagi + Dubal Dangsang Mondollyeo Yeop Chagi</li>
+        <span class="sub">(학기 다리 서기 금강 막기 + 섞어 후려차기 + 옆차기 + 두발 당상 몸돌려 옆차기)</span>
+      <li>Mondollyeo Sokeo Huryeo Chagi + Dollyeo Chagi + Dubal Dangsang Mondollyeo Huryeo Chagi + Ap Kubi Batangson Deok Chigi</li> 
+        <span class="sub">(몸돌려 섞어 후려차기 + 돌려차기 + 두발 당상 몸돌려 후려차기 + 앞굽이 바탕손 덕치기)</span>
+    </ul>
+    <hr>
+    <h3>Hosin Sul <span class="hangul">(호신술)</span></h3>
+    <span class="sub">Defesa pessoal</span>
+    <ul>
+      <li>2 contra pegada no pulso</li>
+      <li>2 contra pegada na roupa</li>
+      <li>2 contra soco</li>
+      <li>2 contra chute</li>
+      <li>2 contra defesa de solo</li>
+    </ul>
+    <hr>
+    <h3>Mit Chagi (밑차기)</h3>
+    <span class="sub">Chutes Baixos</span>
+    <ul>
+      <li>Chutes contínuos em Mikuro Bal com a perna no ar.</li>
+    </ul>
+    <hr>
+    <h3>Poomsae (품새)</h3>
+    <span class="sub">Forma ou sequência de movimentos.</span>
+    <ul>
+      <li>Koryo  <span class="hangul">(고려)</span></li>
+      <li>Geumgang <span class="hangul">(금강)</span></li>
+      <li>Taegeuk Il Jang <span class="hangul">(태극 1장)</span> - Taegeuk Pal Jang <span class="hangul">(태극 8장)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box preta">
+  <div class="title" onclick="toggleBox('dan2')">
+    <div class="title-left">
+      <span>2º DAN (일단 / l Dan)</span>
+      <div class="dan-bars">
+        <div class="dan-bar"></div>
+        <div class="dan-bar"></div>
+      </div>
+    </div>
+    <span id="icon-dan2">▼</span>
+  </div>
+  <div id="dan2" class="content hidden"></div>
+</div>
+
+
+</div>
+
+<script>
+function toggleBox(id) {
+  const el = document.getElementById(id);
+  const icon = document.getElementById("icon-" + id);
+
+  // fecha todos os outros
+  document.querySelectorAll('.content').forEach(c => {
+    if (c.id !== id) {
+      c.classList.add('hidden');
+      document.getElementById("icon-" + c.id).textContent = "▼";
+    }
+  });
+
+  // alterna o atual
+  el.classList.toggle("hidden");
+  icon.textContent = el.classList.contains("hidden") ? "▼" : "▲";
+}
+</script>
+
+</body>
+</html>
